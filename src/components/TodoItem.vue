@@ -2,7 +2,7 @@
   <li :class="{'bg-success-subtle' : task.completed}" class="list-group-item d-flex justify-content-between gap-4 align-items-center">
     <div class="form-check w-100 d-flex align-items-center gap-3">
       <input class="form-check-input" @change='toggleTaskCompletion(task.id)' type="checkbox" :checked="task.completed">
-      <label :class="{'text-decoration-line-through' : task.completed}" class="text-truncate form-check-label" style='max-width: 700px;' v-if="editingTaskId !== task.id">
+      <label :class="['responsive-label', 'text-truncate', 'form-check-label', { 'text-decoration-line-through': task.completed }]" class="text-truncate form-check-label"  v-if="editingTaskId !== task.id">
         {{ editedTitle }}
       </label>
       <div v-if="editingTaskId === task.id" class='d-flex align-items-center gap-3 w-100'>
@@ -51,3 +51,15 @@
     }
   };
 </script>
+
+<style scoped>
+  .responsive-label {
+    max-width: 700px;
+  }
+
+  @media (max-width: 576px) {
+    .responsive-label {
+      max-width: 250px;
+    }
+}
+</style>

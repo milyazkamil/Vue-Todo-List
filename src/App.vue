@@ -1,7 +1,7 @@
 <template>
   <div class='container'>
     <div class="row">
-      <div id='todo' class="d-flex justify-content-between flex-column rounded p-0 col-12 bg-white border border-2">
+      <div id='todo' class="d-flex justify-content-between flex-column rounded p-0 col-12 col-lg-10 offset-0 offset-lg-1 bg-white border border-2">
         <div class=''>
           <TodoHeader :totalTasks="totalTasks" :completedTasks="completedTasks" @delete-completed-tasks="deleteCompletedTasks" @delete-all-tasks="deleteAllTasks" />
           <div class="task-list px-3">
@@ -153,7 +153,8 @@
   }
 
   #todo {
-    min-height: 700px;
+    min-height: 600px;
+    height: 60%;
   }
 
   .list-group-item:hover {
